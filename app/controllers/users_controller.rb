@@ -12,6 +12,24 @@ class UsersController < ApplicationController
 		redirect_to '/users'
 	end
 
+	def show
+		@user = User.find(params[:id])
+	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		User.find(params[:user_id]).update(user_params)
+		redirect_to '/users'
+	end
+
+	def delete
+		User.delete(params[:user_id])
+		redirect_to '/users'
+	end
+
 end
 
 private

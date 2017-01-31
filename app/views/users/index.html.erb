@@ -4,12 +4,23 @@
 		<th>First Name</th>
 		<th>Last Name</th>
 		<th>Email</th>
+		<th></th>
 	</thead>
 	<% @users.each do |user| %>
 		<tr>
 			<td><%= user.first_name %></td>
 			<td><%= user.last_name %></td>
 			<td><%= user.email_address %></td>
+			<td>
+				<a href="/users/<%= user.id %>">Show</a> &#x2502; 
+				<a href="/users/<%= user.id %>/edit">Edit</a> &#x2502; 
+				<form class="link" action="/users/<%= user.id %>" method="post">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="user_id" value="<%= user.id %>">
+					<input class="link" type="submit" value="Destroy">
+				</form>
+			</td>
 		</tr>
 	<% end %>
 </table>
