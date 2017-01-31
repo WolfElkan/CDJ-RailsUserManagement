@@ -12,3 +12,17 @@ class ActionDispatch::Request::Session
 		end
 	end
 end
+
+# class Field
+# 	attr_reader :real_name, :disp_name
+
+# 	def init *args
+# 		self.new
+# 		self.real_name = args[0]
+# 		self.disp_name = args[1] ? args[1] : args[0]
+# 	end
+
+# 	def is val
+# 		self.value = val
+# 	end
+# end
